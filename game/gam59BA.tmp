@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdlyc7hiudtnp"]
+
+[ext_resource type="PackedScene" uid="uid://c5ys5hcwop0v6" path="res://nets/net.tscn" id="5_k6cf4"]
+[ext_resource type="PackedScene" uid="uid://34u2rhlue45o" path="res://walls/wall.tscn" id="6_bskbq"]
+[ext_resource type="PackedScene" uid="uid://bnnrj8qbygt0b" path="res://menus/menu_manager.tscn" id="6_invem"]
+[ext_resource type="PackedScene" uid="uid://574nfj6j145h" path="res://gaps/gap.tscn" id="7_hf18w"]
+[ext_resource type="PackedScene" uid="uid://cdu6itaqhehiw" path="res://balls/ball.tscn" id="8_4uwtm"]
+[ext_resource type="PackedScene" uid="uid://duw8k2s4txhar" path="res://paddles/paddle.tscn" id="9_31wk2"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.25098, 0.0745098, 1)
+
+[node name="Net" parent="." instance=ExtResource("5_k6cf4")]
+position = Vector2(159, 0)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="TopWall" parent="Walls" instance=ExtResource("6_bskbq")]
+
+[node name="BottomWall" parent="Walls" instance=ExtResource("6_bskbq")]
+position = Vector2(0, 175)
+wall_direction = -1
+
+[node name="Gaps" type="Node2D" parent="."]
+
+[node name="LeftGap" parent="Gaps" instance=ExtResource("7_hf18w")]
+
+[node name="RightGap" parent="Gaps" instance=ExtResource("7_hf18w")]
+position = Vector2(320, 0)
+rotation = -1.5708
+gap_direction = 1
+
+[node name="Ball" parent="." instance=ExtResource("8_4uwtm")]
+position = Vector2(160, 90)
+
+[node name="Paddles" type="Node2D" parent="."]
+
+[node name="LeftPaddle" parent="Paddles" instance=ExtResource("9_31wk2")]
+position = Vector2(15, 90)
+
+[node name="RightPaddle" parent="Paddles" instance=ExtResource("9_31wk2")]
+position = Vector2(305, 90)
+paddle_position = 1
+ai_controller = true
+
+[node name="MenuManager" parent="." instance=ExtResource("6_invem")]

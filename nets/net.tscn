@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ys5hcwop0v6"]
+
+[ext_resource type="Texture2D" uid="uid://dxq4d4gb22af1" path="res://nets/net.png" id="1_4sopw"]
+
+[node name="Net" type="Sprite2D"]
+texture = ExtResource("1_4sopw")
+centered = false

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://574nfj6j145h"]
+
+[ext_resource type="Script" path="res://gaps/gap.gd" id="1_rk6p4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6yl5e"]
+
+[node name="Gap" type="Area2D"]
+rotation = 1.5708
+collision_layer = 8
+script = ExtResource("1_rk6p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_6yl5e")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
