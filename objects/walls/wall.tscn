@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://34u2rhlue45o"]
+
+[ext_resource type="Script" path="res://objects/walls/wall.gd" id="1_6l1fy"]
+[ext_resource type="Texture2D" uid="uid://j5e1a4i1r2f8" path="res://objects/walls/wall.png" id="1_brwax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bug30"]
+size = Vector2(320, 5)
+
+[node name="Wall" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_6l1fy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_brwax")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(160, 2.5)
+shape = SubResource("RectangleShape2D_bug30")

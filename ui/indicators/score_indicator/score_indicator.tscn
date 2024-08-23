@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://b672jx2xlklo1"]
+
+[ext_resource type="Script" path="res://ui/indicators/score_indicator/score_indicator.gd" id="1_2t5oq"]
+
+[node name="ScoreIndicator" type="Control" node_paths=PackedStringArray("left_score_label", "right_score_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2t5oq")
+left_score_label = NodePath("MarginContainer/HSplitContainer/LeftScoreLabel")
+right_score_label = NodePath("MarginContainer/HSplitContainer/RightScoreLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftScoreLabel" type="Label" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "0"
+
+[node name="RightScoreLabel" type="Label" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "1"

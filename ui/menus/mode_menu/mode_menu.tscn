@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0vu87lwvknle"]
+
+[ext_resource type="Script" path="res://ui/menus/mode_menu/mode_menu.gd" id="1_4n7sj"]
+
+[node name="ModeMenu" type="Control" node_paths=PackedStringArray("ai_mode_button", "mirror_mode_button", "versus_mode_button", "return_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4n7sj")
+ai_mode_button = NodePath("MarginContainer/VBoxContainer/AIModeButton")
+mirror_mode_button = NodePath("MarginContainer/VBoxContainer/MirrorModeButton")
+versus_mode_button = NodePath("MarginContainer/VBoxContainer/VersusModeButton")
+return_button = NodePath("MarginContainer/VBoxContainer/ReturnButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.533333)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ModeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "SELECT MODE"
+
+[node name="AIModeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Singleplayer (AI)"
+
+[node name="MirrorModeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Singleplayer (Mirror)"
+
+[node name="VersusModeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Multiplayer (Versus)"
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"

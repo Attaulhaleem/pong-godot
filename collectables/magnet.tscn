@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2lf8uwjpkb5r"]
+
+[ext_resource type="Texture2D" uid="uid://dnns7t3srmyhk" path="res://collectables/magnets/magnet-red.png" id="2_5p17i"]
+[ext_resource type="PackedScene" uid="uid://cai00bljjwahw" path="res://collectables/collectable.tscn" id="3_m6eut"]
+
+[node name="Magnet" type="Node2D"]
+
+[node name="Collectable" parent="." instance=ExtResource("3_m6eut")]
+collectable_texture = ExtResource("2_5p17i")
