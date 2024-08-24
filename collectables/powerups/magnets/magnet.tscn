@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2yn5ic1higyn"]
+
+[ext_resource type="Resource" uid="uid://bwp0n6utb6wgb" path="res://collectables/powerups/magnets/magnet.tres" id="2_q0st6"]
+[ext_resource type="PackedScene" uid="uid://cai00bljjwahw" path="res://collectables/powerups/powerup.tscn" id="3_m6eut"]
+
+[node name="Magnet" type="Node2D"]
+
+[node name="Powerup" parent="." instance=ExtResource("3_m6eut")]
+collectable = ExtResource("2_q0st6")

@@ -4,10 +4,11 @@ extends Control
 signal countdown_started
 signal countdown_finished
 
+@export_group("Nodes")
 @export var countdown_label: Label
 @export var countdown_timer: Timer
 
-var countdown: int = 3
+var countdown: int = Global.COUNTDOWN_TIME
 
 func _ready() -> void:
 	Global.mode_selected.connect(on_mode_selected)

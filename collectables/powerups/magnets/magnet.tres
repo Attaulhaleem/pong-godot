@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Collectable" load_steps=3 format=3 uid="uid://bwp0n6utb6wgb"]
+
+[ext_resource type="Script" path="res://collectables/collectable.gd" id="1_es2rs"]
+[ext_resource type="Texture2D" uid="uid://dnns7t3srmyhk" path="res://collectables/powerups/magnets/magnet-red.png" id="2_pt1vb"]
+
+[resource]
+script = ExtResource("1_es2rs")
+texture = ExtResource("2_pt1vb")

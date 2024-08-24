@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdlyc7hiudtnp"]
+[gd_scene load_steps=12 format=3 uid="uid://cdlyc7hiudtnp"]
 
-[ext_resource type="PackedScene" uid="uid://ggvaeyajso3j" path="res://managers/spawn_manager/spawn_manager.tscn" id="4_725l5"]
 [ext_resource type="Script" path="res://objects/nets/net.gd" id="5_01r8a"]
 [ext_resource type="PackedScene" uid="uid://c5ys5hcwop0v6" path="res://objects/nets/net.tscn" id="5_k6cf4"]
 [ext_resource type="PackedScene" uid="uid://34u2rhlue45o" path="res://objects/walls/wall.tscn" id="6_bskbq"]
@@ -9,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cdu6itaqhehiw" path="res://objects/balls/ball.tscn" id="8_4uwtm"]
 [ext_resource type="PackedScene" uid="uid://b672jx2xlklo1" path="res://ui/indicators/score_indicator/score_indicator.tscn" id="8_no2uu"]
 [ext_resource type="PackedScene" uid="uid://duw8k2s4txhar" path="res://objects/paddles/paddle.tscn" id="9_31wk2"]
+[ext_resource type="PackedScene" uid="uid://cgd72sb1cjafv" path="res://tutorial/pickup.tscn" id="9_va6g4"]
+[ext_resource type="Resource" uid="uid://c5781dlbkdrhb" path="res://tutorial/magnet.tres" id="10_8xlvf"]
 [ext_resource type="PackedScene" uid="uid://clx3w7da2ng14" path="res://ui/indicators/countdown_indicator/countdown_indicator.tscn" id="10_f7hxk"]
 
 [node name="Pong" type="Node"]
@@ -44,12 +45,12 @@ rotation = -1.5708
 player = 1
 
 [node name="Net" parent="." instance=ExtResource("5_k6cf4")]
+visible = false
 position = Vector2(159, 0)
 script = ExtResource("5_01r8a")
 
-[node name="BallSpawnManager" parent="." instance=ExtResource("4_725l5")]
-spawnling = ExtResource("8_4uwtm")
-spawn_position = Vector2(160, 90)
+[node name="Ball" parent="." instance=ExtResource("8_4uwtm")]
+position = Vector2(160, 90)
 
 [node name="Paddles" type="Node2D" parent="."]
 
@@ -60,11 +61,21 @@ ai_vision_distance = 160.0
 
 [node name="RightPaddle" parent="Paddles" instance=ExtResource("9_31wk2")]
 position = Vector2(305, 90)
-input_controls = 1
 player = 1
+input_controls = 1
 ai_controller = true
 ai_vision_distance = 160.0
 
-[node name="ScoreIndicator" parent="." instance=ExtResource("8_no2uu")]
+[node name="Collectables" type="Node2D" parent="."]
 
-[node name="CountdownIndicator" parent="." instance=ExtResource("10_f7hxk")]
+[node name="Pickup" parent="Collectables" instance=ExtResource("9_va6g4")]
+position = Vector2(164, 25)
+item = ExtResource("10_8xlvf")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreIndicator" parent="UI" instance=ExtResource("8_no2uu")]
+visible = false
+
+[node name="CountdownIndicator" parent="UI" instance=ExtResource("10_f7hxk")]
+visible = false

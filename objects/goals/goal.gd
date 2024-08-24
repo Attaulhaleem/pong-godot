@@ -1,5 +1,6 @@
 extends Area2D
 
+@export_group("Player Settings")
 @export var player: Global.GamePlayer = Global.GamePlayer.LEFT
 
 
@@ -14,7 +15,6 @@ func _ready() -> void:
 
 
 func _on_body_shape_entered(_body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
-	if body is Ball and body.has_signal("respawn_needed"):
-		await get_tree().create_timer(1.0).timeout
-		body.respawn_needed.emit()
+	if body is Ball:
+		body.reset(body.INITIAL_WAIT_TIME)
 		Global.goal_scored.emit(player)

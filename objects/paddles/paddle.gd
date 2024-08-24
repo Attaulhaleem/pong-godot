@@ -10,6 +10,8 @@ const INPUT_ACTIONS: Dictionary = {
 	InputControls.BOTH: {InputDirection.UP: "both_move_up", InputDirection.DOWN: "both_move_down"},
 }
 
+@export_group("Player Settings")
+@export var player: Global.GamePlayer = Global.GamePlayer.LEFT
 @export var input_controls: InputControls:
 	set(new_controls):
 		input_controls = new_controls
@@ -18,11 +20,13 @@ const INPUT_ACTIONS: Dictionary = {
 		assert(move_up_input_action)
 		assert(move_down_input_action)
 
-@export var player: Global.GamePlayer = Global.GamePlayer.LEFT
+@export_group("Movement Settings")
 @export var max_speed: float = 2.0
 @export var acceleration: float = 512.0
 @export var deceleration_weight: float = 0.9
 @export var linear_speed: Vector2 = Vector2(256.0, 0.0)
+
+@export_group("AI Settings")
 @export var ai_controller: bool = false
 @export var ai_vision_distance: float = 60.0
 
@@ -46,6 +50,7 @@ func _ready() -> void:
 	starting_position = position
 	Global.mode_selected.connect(on_mode_selected)
 	Global.game_started.connect(on_game_started)
+	Global.powerup_collected.connect(on_powerup_collected)
 
 
 func _physics_process(delta: float) -> void:
@@ -114,3 +119,13 @@ func on_game_started(mode: Global.GameMode) -> void:
 					print_debug("Undefined game mode!")
 		_:
 			print_debug("Undefined player side!")
+
+
+func on_powerup_collected(collector: Global.GamePlayer, item: Item) -> void:
+	if collector != player:
+		return
+	if item.name == "magnet":
+		print("player collected magnet")
+		self.modulate = Color.RED
+	else:
+		print(item.name)

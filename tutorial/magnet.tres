@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c5781dlbkdrhb"]
+
+[ext_resource type="PackedScene" uid="uid://boija667nst7y" path="res://tutorial/magnet.tscn" id="1_bhv1e"]
+[ext_resource type="Script" path="res://tutorial/item.gd" id="2_qgwjj"]
+
+[resource]
+script = ExtResource("2_qgwjj")
+name = "magnet"
+scene = ExtResource("1_bhv1e")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://boija667nst7y"]
+
+[ext_resource type="Texture2D" uid="uid://dnns7t3srmyhk" path="res://collectables/powerups/magnets/magnet-red.png" id="1_ar0oi"]
+[ext_resource type="Texture2D" uid="uid://cevs0r74kteeh" path="res://collectables/powerups/circular-frame.png" id="2_3iqhq"]
+
+[node name="Magnet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ar0oi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_3iqhq")

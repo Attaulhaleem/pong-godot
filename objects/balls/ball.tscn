@@ -6,13 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ss46i"]
 radius = 4.0
 
-[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("idle_timer") groups=["Balls"]]
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("last_hit_timer") groups=["Balls"]]
 collision_mask = 30
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("1_hxi40")
-idle_timer = NodePath("IdleTimer")
+last_hit_timer = NodePath("LastHitTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nts3s")
@@ -20,7 +20,7 @@ texture = ExtResource("1_nts3s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ss46i")
 
-[node name="IdleTimer" type="Timer" parent="."]
+[node name="LastHitTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 

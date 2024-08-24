@@ -1,11 +1,13 @@
 class_name ModeMenu
 extends Menu
 
+@export_group("Nodes")
 @export var ai_mode_button: Button
 @export var mirror_mode_button: Button
 @export var versus_mode_button: Button
 @export var return_button: Button
 
+@export_group("Menus")
 @export var return_menu: Menu
 
 

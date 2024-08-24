@@ -1,11 +1,13 @@
 class_name MainMenu
 extends Menu
 
+@export_group("Nodes")
 @export var play_button: Button
 @export var sound_button: Button
 @export var graphics_button: Button
 @export var quit_button: Button
 
+@export_group("Menus")
 @export var play_menu: Menu
 @export var sound_menu: Menu
 @export var graphics_menu: Menu

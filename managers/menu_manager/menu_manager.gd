@@ -1,6 +1,7 @@
 class_name MenuManager
 extends CanvasLayer
 
+@export_group("Menus")
 @export var main_menu: MainMenu
 @export var mode_menu: ModeMenu
 @export var sound_menu: SoundMenu

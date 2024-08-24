@@ -1,5 +1,6 @@
 extends Control
 
+@export_group("Nodes")
 @export var left_score_label: Label
 @export var right_score_label: Label
 
